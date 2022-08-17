@@ -32,7 +32,7 @@ public class CheckOutServlet extends HttpServlet {
 			Date date = new Date();
 			// Todos os produtos do carrinho
 			ArrayList<Cart> cart_list = (ArrayList<Cart>) request.getSession().getAttribute("cart-list");
-			// Checar autenticação, endereco e carrinho
+			// Checar autenticaÃ§Ã£o, endereco e carrinho
 			User auth = (User) request.getSession().getAttribute("auth");						
 			if(cart_list != null && auth!=null) {
 				AddressDao addrDao = new AddressDao(DbCon.getConnection());
@@ -55,7 +55,6 @@ public class CheckOutServlet extends HttpServlet {
 				if(auth==null) {
 					response.sendRedirect("login.jsp");
 				}
-				response.sendRedirect("cart.jsp");
 			}
 		} catch (ClassNotFoundException|SQLException e) {
 			
